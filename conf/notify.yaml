@@ -3,60 +3,71 @@
 # All options are configured to read from the secret called hasura-secrets
 # To enable a provider:
 # 1. Add the required secrets. Checkout `hasura secrets --help` for more information
-# 2. modify the default value to the provider that you want
+# 2. Un-comment the required provider section and fill in required values
+# 3. Modify the default value to the provider that you want
 
 email:
-  # default can take values 'smtp', 'sparkPost' or 'mandrill'
+  # default can take values 'smtp', 'sparkPost', 'mandrill' or 'hasura'
+  # make sure that you un-comment and fill in the corresponding provider configuration
   default: null
   providers:
-    hasura:
-      authToken:
-        secretKeyRef:
-          key: notify.hasura.token
-          name: hasura-secrets
-    mandrill:
-      apiKey:
-        secretKeyRef:
-          key: notify.mandrill.key
-          name: hasura-secrets
-    smtp:
-      hostname: ""
-      password:
-        secretKeyRef:
-          key: notify.smtp.password
-          name: hasura-secrets
-      port: 465
-      username:
-        secretKeyRef:
-          key: notify.smtp.username
-          name: hasura-secrets
-    sparkPost:
-      apiKey:
-        secretKeyRef:
-          key: notify.sparkpost.key
-          name: hasura-secrets
+    <<: {}
+    # hasura:
+    #   authToken:
+    #     secretKeyRef:
+    #       key: notify.hasura.token
+    #       name: hasura-secrets
+    
+    # mandrill:
+    #   apiKey:
+    #     secretKeyRef:
+    #       key: notify.mandrill.key
+    #       name: hasura-secrets
+
+    # smtp:
+    #   hostname: ""                    # set SMTP hostname
+    #   password:
+    #     secretKeyRef:
+    #       key: notify.smtp.password
+    #       name: hasura-secrets
+    #   port: 465                       # set SMTP port (465 works in most cases)
+    #   username:
+    #     secretKeyRef:
+    #       key: notify.smtp.username
+    #       name: hasura-secrets
+
+    # sparkPost:
+    #   apiKey:
+    #     secretKeyRef:
+    #       key: notify.sparkpost.key
+    #       name: hasura-secrets
+
 sms:
-  # default can take values 'msg91' or 'twilio'
+  # default can take values 'msg91', 'twilio' or 'hasura'
+  # make sure that you un-comment and fill in the corresponding provider configuration
   default: null
   providers:
-    hasura:
-      authToken:
-        secretKeyRef:
-          key: notify.hasura.token
-          name: hasura-secrets
-    msg91:
-      from: ""
-      authKey:
-        secretKeyRef:
-          key: notify.msg91.key
-          name: hasura-secrets
-    twilio:
-      from: ""
-      accountSid:
-        secretKeyRef:
-          key: notify.twilio.accountsid
-          name: hasura-secrets
-      authToken:
-        secretKeyRef:
-          key: notify.twilio.authtoken
-          name: hasura-secrets
+    <<: {}
+    # hasura:
+    #   authToken:
+    #     secretKeyRef:
+    #       key: notify.hasura.token
+    #       name: hasura-secrets
+
+    # msg91:
+    #   from: ""                            # set a from id, 6 letter alphanumeric
+    #   authKey:
+    #     secretKeyRef:
+    #       key: notify.msg91.key
+    #       name: hasura-secrets
+
+    # twilio:
+    #   from: ""                           # set a from number, usually a phone number
+    #   accountSid:
+    #     secretKeyRef:
+    #       key: notify.twilio.accountsid
+    #       name: hasura-secrets
+    #   authToken:
+    #     secretKeyRef:
+    #       key: notify.twilio.authtoken
+    #       name: hasura-secrets
