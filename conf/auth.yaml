@@ -55,8 +55,8 @@ uiKit:
   enabled: "true"
   # can configure theme to be either "light" or "dark"; default value is "dark"
   theme: "dark"
-  # redirect to your app home page after successfull auth; default value is null
-  redirectUrl: "<URL TO HOME PAGE>"
+  # URL to redirect to after successfull auth; default value is null
+  redirectUrl: null
 # Configuration related to the email provider
 email:
   # email address of the sender for verification emails
