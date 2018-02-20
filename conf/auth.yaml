@@ -49,6 +49,14 @@ session:
   # The default age of a user session in seconds. Default: 181440 (3 weeks)
   sessionAge: "1814400"
 
+# Configuration of the UI Kit
+uiKit:
+  # can be enabled or disabled; default value is "true"
+  enabled: "true"
+  # can configure theme to be either "light" or "dark"; default value is "dark"
+  theme: "dark"
+  # redirect to your app home page after successfull auth; default value is null
+  redirectUrl: "<URL TO HOME PAGE>"
 # Configuration related to the email provider
 email:
   # email address of the sender for verification emails
