@@ -92,6 +92,8 @@ mobile:
     Verify your acccount with {{ cluster.name }}! Your OTP is {{ "{{otp}}" }}.
   # OTP expiry time in minutes
   otpExpiryTime: "15"
+  # OTP length is optional. default value is 6
+  # otpLength: "4"
 
 # Configuration for the mobile-password provider
 mobilePassword:
@@ -102,6 +104,8 @@ mobilePassword:
     Verify your acccount with {{ cluster.name }}! Your OTP is {{ "{{otp}}" }}.
   # OTP expiry time in minutes
   otpExpiryTime: "15"
+  # OTP length is optional. default value is 6
+  # otpLength: "4"
 
 # Configuration for password
 password:
