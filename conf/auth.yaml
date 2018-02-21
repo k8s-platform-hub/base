@@ -56,6 +56,7 @@ uiKit:
   # can configure theme to be either "light" or "dark"; default value is "dark"
   theme: "dark"
   # URL to redirect to after successfull auth; default value is null
+  # use https://www.{{ cluster.name }}.hasura-app.io/ to redirect to www after login
   redirectUrl: null
 # Configuration related to the email provider
 email:
