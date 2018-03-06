@@ -161,9 +161,34 @@
 #          with all the subdomains on the current domain to make CORS requests.
 #   - enableWebsockets:
 #       Whether to allow websockets
-#   - locationDirectives:
-#       (Advanced) Additional nginx directives that need to go into the
-#       location block
+#   - locationDirectives (Advanced):
+#       Specify raw nginx directives for this location
+#
+#       For example:
+#
+#       1. To restrict the size of the request body on a location
+#
+#          locationDirectives: |
+#            client_max_body_size 100M;
+#
+#          Look at filestore's route configuration
+#
+#       2. To increase the time taken by a microservice to respond to a request
+#
+#          locationDirectives: |
+#            proxy_read_timeout 600s;
+#
+#       You can use other nginx location directives (directives which can be used
+#       in 'Location' context) too (provided they are part of modules shipped on the hasura gateway)
+#
+#       The list of these directives is present here
+#       http://nginx.org/en/docs/dirindex.html
+#
+#       **Important** A misspelled directive or a directive which cannot be used in the
+#       'Location' context *will* crash the gateway. Currently hasura doesn't guard against
+#       this. If you see the gateway in a 'CrashLoopBackoff' state, remove the locationDirectives
+#       to debug.
+#
 
 auth:
   /:
